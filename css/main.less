@@ -1,0 +1,803 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* Typography */
+
+@font-face {
+    font-family: 'LatoHairline';
+    src: url('Lato-Hai-webfont.eot');
+    src: url('Lato-Hai-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-Hai-webfont.woff') format('woff'),
+         url('Lato-Hai-webfont.ttf') format('truetype'),
+         url('Lato-Hai-webfont.svg#LatoHairline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoHairlineItalic';
+    src: url('Lato-HaiIta-webfont.eot');
+    src: url('Lato-HaiIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-HaiIta-webfont.woff') format('woff'),
+         url('Lato-HaiIta-webfont.ttf') format('truetype'),
+         url('Lato-HaiIta-webfont.svg#LatoHairlineItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoLight';
+    src: url('Lato-Lig-webfont.eot');
+    src: url('Lato-Lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-Lig-webfont.woff') format('woff'),
+         url('Lato-Lig-webfont.ttf') format('truetype'),
+         url('Lato-Lig-webfont.svg#LatoLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoLightItalic';
+    src: url('Lato-LigIta-webfont.eot');
+    src: url('Lato-LigIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-LigIta-webfont.woff') format('woff'),
+         url('Lato-LigIta-webfont.ttf') format('truetype'),
+         url('Lato-LigIta-webfont.svg#LatoLightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoRegular';
+    src: url('Lato-Reg-webfont.eot');
+    src: url('Lato-Reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-Reg-webfont.woff') format('woff'),
+         url('Lato-Reg-webfont.ttf') format('truetype'),
+         url('Lato-Reg-webfont.svg#LatoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoItalic';
+    src: url('Lato-RegIta-webfont.eot');
+    src: url('Lato-RegIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-RegIta-webfont.woff') format('woff'),
+         url('Lato-RegIta-webfont.ttf') format('truetype'),
+         url('Lato-RegIta-webfont.svg#LatoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoBold';
+    src: url('Lato-Bol-webfont.eot');
+    src: url('Lato-Bol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-Bol-webfont.woff') format('woff'),
+         url('Lato-Bol-webfont.ttf') format('truetype'),
+         url('Lato-Bol-webfont.svg#LatoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoBoldItalic';
+    src: url('Lato-BolIta-webfont.eot');
+    src: url('Lato-BolIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-BolIta-webfont.woff') format('woff'),
+         url('Lato-BolIta-webfont.ttf') format('truetype'),
+         url('Lato-BolIta-webfont.svg#LatoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoBlack';
+    src: url('Lato-Bla-webfont.eot');
+    src: url('Lato-Bla-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-Bla-webfont.woff') format('woff'),
+         url('Lato-Bla-webfont.ttf') format('truetype'),
+         url('Lato-Bla-webfont.svg#LatoBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LatoBlackItalic';
+    src: url('Lato-BlaIta-webfont.eot');
+    src: url('Lato-BlaIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lato-BlaIta-webfont.woff') format('woff'),
+         url('Lato-BlaIta-webfont.ttf') format('truetype'),
+         url('Lato-BlaIta-webfont.svg#LatoBlackItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html { 
+    font: 100%/1.5 "LatoRegular", helvetica, arial, sans-serif; 
+    background-color: #F7F8F9;
+}
+
+body {
+    -webkit-font-smoothing: antialiased; /* webkit prefix - edit font-smoothing property */
+    -moz-font-smoothing: antialiased; /* moz prefix - edit font-smoothing property */
+    -ms-font-smoothing: antialiased; /* ms prefix - edit font-smoothing property */
+    -o-font-smoothing: antialiased; /* o prefix - edit font-smoothing property */
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    float: left;
+    width: 100%;
+    background-color: #F7F8F9;
+    font-family: "LatoRegular", helvetica, arial, sans-serif; 
+}
+
+p {
+    margin-bottom: 18px;
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-size: 18px;
+    line-height: 26px;
+    line-height: 26px;
+    font-style: normal;
+    font-weight: 400;
+    color: #34495E;
+    text-indent: 0px;
+    text-align: left;
+}
+
+a{
+    margin-bottom: 18px;
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-size: 18px;
+    line-height: 26px;
+    line-height: 26px;
+    font-style: normal;
+    font-weight: 400;
+    color: #3498db;
+    text-indent: 0px;
+    text-align: left;
+}
+
+ul, ol{
+    margin-bottom: 2em;
+}
+
+h1, h2, h3, h4 {
+    font-family: "LatoBold", helvetica, arial, sans-serif;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 60px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 0px;
+    color: #2980B9;
+    margin-top: 21px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 300;
+    font-family: "LatoLightItalic";
+    color: #7F8C8D;
+    margin-bottom: 18px;
+    line-height: 52px;
+}
+
+h3 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    color: #2980B9;
+    margin-bottom: 9px;
+}
+
+h4 {
+     color: #2980B9;
+    font-weight: 700;
+    line-height: 26px;
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+
+ul, ol{
+    padding: 0;
+}
+
+ul li, ol li{
+    margin-bottom: 18px;
+    margin-bottom: 9px;
+    font-size: 18px;
+    font-size: 18px;
+    line-height: 26px;
+    line-height: 26px;
+    font-style: normal;
+    font-weight: 400;
+    color: #34495E;
+    text-indent: 0px;
+    text-align: left;
+}
+
+.nav-links{
+    
+    float: right;
+    margin: 0;
+
+    li{
+        display: inline;
+        margin-left: 20px;
+    }
+
+    li a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    li a:hover{
+        color: #2ECC71;
+    }
+
+    li a.active{
+        color: #2ECC71;
+    }
+}
+
+
+
+/* page structure */
+
+.wrap{
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.site-header{
+    background: #34495e;
+
+      .wrap{
+        padding: 19px 4rem 9px;
+    }
+
+    .site-title{
+        font-weight: 300;
+        color: white;
+        float: left;
+    }
+}
+
+.site-footer{
+    
+    margin-top: 74px;
+    margin-top: 4.625rem;
+
+      .wrap{
+        padding: 1px 4rem;
+    }
+}
+
+
+.main-content{
+    .wrap{
+        margin-top: 74px;
+        margin-top: 45px;
+    }
+}
+
+.content-list{
+    border-bottom: 4px solid rgb(218, 218, 218);
+    padding: 0 0 36px;
+    margin-bottom: 18px;
+}
+
+
+    /*.alert {
+
+padding: 16px 45px 16px 30px;
+text-shadow: none;
+background-color: #fff;
+border: 2px solid #ebece8;
+
+
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+margin-bottom: 26px;
+}*/
+
+.alert {
+padding: 26px 45px 18px 39px;
+text-shadow: none;
+background-color: #fff;
+border: 2px solid #ebece8;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+margin-bottom: 26px;
+margin-left: -41px;
+width: 738px;
+}
+
+.ethome .alert{
+
+}
+
+.alert-info {
+background-color: #fff;
+border-color: #e9ecef;
+}
+
+
+.btn {
+border: none;
+background: #bdc3c7;
+color: #ffffff;
+padding: 9px 12px 10px;
+line-height: 22px;
+font-size: 18px;
+text-decoration: none;
+text-shadow: none;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+-webkit-transition: 0.25s;
+-moz-transition: 0.25s;
+-o-transition: 0.25s;
+transition: 0.25s;
+-webkit-backface-visibility: hidden;
+}
+
+.btn-info {
+background-color: #3498db;
+}
+
+.btn.btn-info:hover, .btn.btn-info:focus, .btn-group:focus .btn.btn-info.dropdown-toggle {
+background-color: #5dade2;
+}
+
+.btn-warning {
+background-color: #f1c40f;
+}
+
+.btn.btn-warning:hover,
+.btn.btn-warning:focus,
+.btn-group:focus .btn.btn-warning.dropdown-toggle {
+  background-color: #f5d313;
+}
+
+#timeline {
+list-style: none;
+margin: 0 0 18px;
+
+    li{
+        margin-bottom: 0;
+    }
+}
+
+.popover-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+.jumbotron {
+position: relative;
+padding: 120px 0 40px;
+color: #fff;
+text-align: center;
+background: #020031;
+background: -moz-linear-gradient(45deg, #2C3E50 0%, #C0392B 100%);
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#2C3E50), color-stop(100%,#C0392B));
+background: -webkit-linear-gradient(45deg, #2C3E50 0%,#C0392B 100%);
+background: -o-linear-gradient(45deg, #2C3E50 0%,#C0392B 100%);
+background: -ms-linear-gradient(45deg, #2C3E50 0%,#C0392B 100%);
+background: linear-gradient(45deg, #2C3E50 0%,#C0392B 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2C3E50', endColorstr='#C0392B',GradientType=1 );
+-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+-moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+}
+
+.subhead {
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+.subhead h2{
+    color: white;
+}
+
+.ethome .main-container{
+    padding-top: 26px;
+}
+
+.ethome .nav, footer .nav{
+    float: right;
+
+    li{
+        list-style: none;
+        display: inline;
+        margin-left: 20px;
+    }
+}
+
+.nav>li>a {
+display: inline;
+text-decoration: underline;
+}
+
+.fl{
+    float: left;
+}
+
+.site-title a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar .nav {
+padding-top: 11px;
+}
+
+/* Media Queries */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
+    html { font-size: 65%; }
+
+    .wrap{
+        padding: 0 2rem;
+    }
+
+    .site-footer{
+        .wrap{
+            padding: 1px 2rem;
+        }
+    }
+
+    .site-footer{
+        .wrap{
+            padding: 1px 2rem;
+        }
+    }
+    
+    .site-header{
+        .wrap{
+            padding: 1px 2rem;
+        }
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 481px) and (max-width : 1024px) {
+
+    html { font-size: 85%; }
+
+    .wrap{
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 0 4rem;
+    }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+
+    html { font-size: 100%; }
+
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
