@@ -77,13 +77,13 @@ $( document ).ready(function() {
      */
     $(".masterheader__next-section-link").click(function(evn){
     evn.preventDefault();
-    $('html,body').scrollTo(this.hash, this.hash, {duration:7000, offset: {top:-136} }); 
+    $('html,body').scrollTo(this.hash, this.hash, {duration:7000, offset: {top:0} }); 
     $('.nav__menu').find('#about').parent().addClass("nav__menu-item--active");
     });
 
 
     // Highlight the nav items
-    $('.nav__menu').onePageNav({
+    /*$('.nav__menu').onePageNav({
     currentClass: 'nav__menu-item--active',
     changeHash: false,
     scrollSpeed: 750,
@@ -92,15 +92,15 @@ $( document ).ready(function() {
     filter: '',
     easing: 'swing',
     begin: function() {
-        //I get fired when the animation is starting
+        
     },
     end: function() {
-        //I get fired when the animation is ending
+       
     },
     scrollChange: function($currentListItem) {
-        //I get fired when you enter a section and I pass the list item of the section
+       
     }
-});
+});*/
 
 
 

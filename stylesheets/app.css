@@ -6646,25 +6646,18 @@ p {
 
 .nav-wrapper {
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  position: fixed;
+  position: absolute;
   z-index: 100;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 700px) {
-  .nav-wrapper {
-    background: #fff;
-  }
 }
 
 .nav {
-  padding: 24px 0 24px 0;
-  padding: 1.5rem 0 1.5rem 0;
+  padding: 32px 20px 32px 20px;
+  padding: 2rem 1.25rem 2rem 1.25rem;
 }
 
 .nav__brand {
   float: left;
-  color: #303030;
+  color: #fff;
   font-family: "brandon-grotesque";
   font-size: 21px;
   font-size: 1.3125rem;
@@ -6677,13 +6670,20 @@ p {
   }
 }
 
+.nav__brand:hover {
+  color: white;
+}
+
 .nav__menu {
   float: right;
   list-style: none;
 }
 @media (max-width: 700px) {
   .nav__menu {
-    display: none;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
   }
 }
 
@@ -6701,8 +6701,10 @@ p {
   -ms-border-radius: 400px;
   -o-border-radius: 400px;
   border-radius: 400px;
+  color: white;
 }
 .nav__menu-item a:hover, .nav__menu-item--active a:hover {
+  color: #008cba;
   background: #f0f0f0;
 }
 
@@ -6720,6 +6722,7 @@ p {
 }
 .nav__menu-item--active a:hover {
   background: #008cba;
+  color: #fff;
 }
 
 .nav__menu-item--hidden {
@@ -6743,15 +6746,15 @@ p {
 
 .masterheader-wrapper {
   width: 100%;
-  padding: 400px 0 32px 0;
-  padding: 25rem 0 2rem 0;
+  padding: 272px 0 64px 0;
+  padding: 17rem 0 4rem 0;
   background: #f0f0f0;
   background: black url("../img/mountain.jpg") no-repeat center -235px fixed;
 }
 @media (max-width: 700px) {
   .masterheader-wrapper {
-    padding: 208px 0 32px 0;
-    padding: 13rem 0 2rem 0;
+    padding: 176px 0 32px 0;
+    padding: 11rem 0 2rem 0;
     background: black url("../img/mountain.jpg") no-repeat center -20px fixed;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -6767,24 +6770,13 @@ p {
 }
 @media (max-width: 500px) {
   .masterheader-wrapper {
-    padding: 144px 0 0 0;
-    padding: 9rem 0 0 0;
+    padding: 144px 0 16px 0;
+    padding: 9rem 0 1rem 0;
     background: black url("../img/mountain.jpg") no-repeat center -45px fixed;
     -webkit-background-size: 130%;
     -moz-background-size: 130%;
     -o-background-size: 130%;
     background-size: 130%;
-  }
-}
-@media (max-width: 360px) {
-  .masterheader-wrapper {
-    padding: 112px 0 0 0;
-    padding: 7rem 0 0 0;
-    background: black url("../img/mountain.jpg") no-repeat center -15px fixed;
-    -webkit-background-size: 150%;
-    -moz-background-size: 150%;
-    -o-background-size: 150%;
-    background-size: 150%;
   }
 }
 
@@ -6795,8 +6787,7 @@ p {
 
 @media (max-width: 570px) {
   .masterheader__header {
-    font-size: 21px;
-    font-size: 1.3125rem;
+    display: none;
   }
 }
 

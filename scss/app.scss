@@ -124,24 +124,19 @@ p{
 
 .nav-wrapper{
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    @media (max-width: 700px) {
-        background: #fff;
-    }
-    position: fixed;
+    position: absolute;
     z-index: 100;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .nav{
     //@include grid-row();
     @extend %gridrow;
-    @include x-rem(padding, 1.5 0 1.5 0);
+    @include x-rem(padding, 2 20px 2 20px);
 }
 
 .nav__brand{
     float: left;
-    color: #303030;
+    color: #fff;
     font-family: $logotype;
     @include x-rem(font-size, 21px);
     @media (max-width: 700px) {
@@ -151,11 +146,18 @@ p{
     }
 }
 
+.nav__brand:hover{
+    color: white;
+}
+
 .nav__menu{
     float: right;
     list-style: none;
     @media (max-width: 700px) {
-        display: none;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        margin-top: 2rem;
     }
     
 }
@@ -168,9 +170,11 @@ p{
         font-weight: 300;
         @include x-rem(padding, 0.25 0.75);
          @include border-radius(400px);
+         color: white;
     }
 
     a:hover{
+        color: $link-color;
         background: #f0f0f0;
     }
 }
@@ -187,6 +191,8 @@ p{
 
     a:hover{
         background: $link-color;
+
+        color: #fff;
     }
 }
 
@@ -208,7 +214,7 @@ p{
 
 .masterheader-wrapper{
     width: 100%;
-    @include x-rem(padding, 25 0 2 0);
+    @include x-rem(padding, 17 0 4 0);
     background: #f0f0f0;
     //background: #000 url('../img/mountain.jpg') no-repeat center -235px fixed;
     background: #000 url('../img/mountain.jpg') no-repeat center -235px fixed;
@@ -217,7 +223,7 @@ p{
 
 
     @media (max-width: 700px) {
-     @include x-rem(padding, 13 0 2 0);   
+     @include x-rem(padding, 11 0 2 0);   
     background: #000 url('../img/mountain.jpg') no-repeat center -20px fixed;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -230,7 +236,7 @@ p{
      }
 
      @media (max-width: 500px) {
-        @include x-rem(padding, 9 0 0 0);
+        @include x-rem(padding, 9 0 1 0);
         background: #000 url('../img/mountain.jpg') no-repeat center -45px fixed;
         -webkit-background-size: 130%;
     -moz-background-size: 130%;
@@ -238,14 +244,7 @@ p{
     background-size: 130%;  
      }
 
-     @media (max-width: 360px) {
-        @include x-rem(padding, 7 0 0 0);
-        background: #000 url('../img/mountain.jpg') no-repeat center -15px fixed;
-                -webkit-background-size: 150%;
-    -moz-background-size: 150%;
-    -o-background-size: 150%;
-    background-size: 150%;  
-     }
+     
 }
 
 .masterheader{
@@ -261,7 +260,7 @@ p{
     @extend %header-intro-styles;
 
     @media (max-width: 570px) {
-       @include x-rem(font-size, 21px);
+       display: none;
      }
 
 }
