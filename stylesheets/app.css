@@ -6623,6 +6623,10 @@ th.hide-for-touch {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
   font-family: "calluna-sans";
   color: #303030;
 }
@@ -6641,7 +6645,7 @@ ul {
 }
 
 p {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .nav-wrapper {
@@ -6693,7 +6697,7 @@ p {
   padding: 0 0 0 0.75rem;
 }
 .nav__menu-item a, .nav__menu-item--active a {
-  font-weight: 300;
+  font-weight: 400;
   padding: 4px 12px;
   padding: 0.25rem 0.75rem;
   -webkit-border-radius: 400px;
@@ -6718,7 +6722,7 @@ p {
   border-radius: 400px;
   background: #008cba;
   color: #fff;
-  font-weight: 300;
+  font-weight: 400;
 }
 .nav__menu-item--active a:hover {
   background: #008cba;
@@ -6746,10 +6750,10 @@ p {
 
 .masterheader-wrapper {
   width: 100%;
-  padding: 272px 0 64px 0;
-  padding: 17rem 0 4rem 0;
+  padding: 176px 0 64px 0;
+  padding: 11rem 0 4rem 0;
   background: #f0f0f0;
-  background: black url("../img/mountain.jpg") no-repeat center -235px fixed;
+  background: black url("../img/mountain.jpg") no-repeat center -395px fixed;
 }
 @media (max-width: 700px) {
   .masterheader-wrapper {
@@ -7228,6 +7232,15 @@ p {
     width: 100%;
     float: left;
   }
+}
+.section-contact__block img {
+  -webkit-border-radius: 400px;
+  -moz-border-radius: 400px;
+  -ms-border-radius: 400px;
+  -o-border-radius: 400px;
+  border-radius: 400px;
+  padding: 20px;
+  margin-top: -20px;
 }
 
 .section-contact__form {

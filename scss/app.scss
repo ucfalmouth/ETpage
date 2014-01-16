@@ -100,6 +100,10 @@ $sans-serif: "calluna-sans";
 }
 
 body{
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
     font-family: $sans-serif;
     color: #303030;
 }
@@ -118,7 +122,7 @@ ul{
 }
 
 p{
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
@@ -167,7 +171,7 @@ p{
     @include x-rem(padding, 0 0 0 0.75);
 
     a{
-        font-weight: 300;
+        font-weight: 400;
         @include x-rem(padding, 0.25 0.75);
          @include border-radius(400px);
          color: white;
@@ -186,7 +190,7 @@ p{
          @include border-radius(400px);
         background: $link-color;
         color: #fff;
-        font-weight: 300;
+        font-weight: 400;
     }
 
     a:hover{
@@ -214,10 +218,10 @@ p{
 
 .masterheader-wrapper{
     width: 100%;
-    @include x-rem(padding, 17 0 4 0);
+    @include x-rem(padding, 11 0 4 0);
     background: #f0f0f0;
     //background: #000 url('../img/mountain.jpg') no-repeat center -235px fixed;
-    background: #000 url('../img/mountain.jpg') no-repeat center -235px fixed;
+    background: #000 url('../img/mountain.jpg') no-repeat center -395px fixed;
 
 
 
@@ -598,8 +602,10 @@ p{
         @include x-rem(height, 10);
     }
     .section-header__title{
+  
         @media (max-width: 700px) {
             width: 100%;
+
         }
     }
 }
@@ -610,6 +616,7 @@ p{
 }
 
 .section-contact__block{
+
     @include grid-column(4);
     //@include panel;
 
@@ -619,6 +626,12 @@ p{
     
     @media (max-width: 550px) {
         @include grid-column(12);
+    }
+
+    img{
+        @include border-radius(400px);
+        padding: 20px;
+        margin-top: -20px;
     }
 }
 
