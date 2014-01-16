@@ -369,30 +369,36 @@
             <h5>CONTACT US</h5>
         </div>
 
-        <form class="section-contact__form" data-abide>
-          <div class="name-field">
+
+
+        <form id="contact-form" class="section-contact__form" data-abide>
+        <div class="panel" style="display: none">
+          <h5>Thank you!</h5>
+          <p>A member of the team will be in touch in due course.</p>
+        </div>
+                  <div class="name-field">
             
-            <input type="text" placeholder="Your name..." required pattern="[a-zA-Z]+">
+            <input name="name" type="text" placeholder="Your name..." required>
             <small class="error">Name is required and must be a string.</small>
           </div>
           <div class="email-field">
             
-            <input type="email" placeholder="Email address..." required>
+            <input type="email" name="email" placeholder="Email address..." required>
             <small class="error">An email address is required.</small>
           </div>
         
-          <select name="willy">
-              <option disabled="disabled" selected="selected">Please tell us the nature of your query</option>
-              <option value="consultations">Consultations</option>
-              <option value="indiviual-group-training">Indiviual &amp; group training</option>
-              <option value="drop-ins">Drop ins</option>
-              <option value="other">Other</option>
+          <select name="option">
+              <option class="disabled" disabled="disabled" selected="selected">Please tell us the nature of your query...</option>
+              <option value="Consultations">Consultations</option>
+              <option value="Indiviual / group training">Indiviual &amp; group training</option>
+              <option value="Drop-ins">Drop ins</option>
+              <option value="Other">Other</option>
 
           </select>
 
           <div class="message-field">
             
-            <textarea type="text" placeholder="How can we help?" rows="8" required></textarea>
+            <textarea type="text" name="message" placeholder="How can we help?" rows="8" required></textarea>
             <small class="error">Invalid entry</small>
           </div>
           <button class="rounded-button green-button" type="submit">Submit</button>

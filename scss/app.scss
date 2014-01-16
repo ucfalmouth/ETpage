@@ -733,6 +733,11 @@ p{
 
 }
 
+select {
+    option.disabled{
+    color: #ACACAC;
+    }
+}
 
 .isotope,
 .isotope .isotope-item {

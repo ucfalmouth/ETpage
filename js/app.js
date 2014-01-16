@@ -1,6 +1,6 @@
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
+$(document).foundation('abide','events');
 
 $( document ).ready(function() {
 
@@ -101,6 +101,76 @@ $( document ).ready(function() {
        
     }
 });*/
+
+// CONTACT FORM
+$('#contact-form').submit(function(e){
+  e.preventDefault();
+
+$(this)
+  .on('invalid', function () {
+    //var invalid_fields = $(this).find('[data-invalid]');
+    //console.log(invalid_fields);
+    alert('There is a problem');
+    return false;
+  })
+  .on('valid', formSend());
+
+
+
+});// <-- End Contact form submit
+
+var formSend = function(){
+	  var values = $('#contact-form').serialize();
+ /* Send the data using post and put the results in a div */
+  $.ajax({
+    url: "send_form_email.php",
+    type: "post",
+    data: values,
+    success: function(){
+      // Success, i.e the message is *able*to be sent
+      // however, not validated. This is done server side (although there is 
+      // feedback in case of input error, provided by Foundation).
+  		$('#contact-form .panel').fadeToggle().delay( 800 );
+
+      //$('#emailformsubmit').hide();
+      //$("#result").html('Submitted successfully');
+      
+      //$( '.panel-body' ).animate({
+      //left: "-456px",
+      //opacity: 0.0
+      //}, 200, "swing" );
+      //$("#result").html('Submitted successfully');
+      //$( '.panel-body--success' ).animate({
+       //marginLeft: '0px',
+       // opacity: 1.0
+      //}, 200, "swing" );
+  		
+   		$('#contact-form input').fadeToggle();
+   		$('#contact-form select').fadeToggle();
+   		$('#contact-form textarea').fadeToggle();
+   		$('#contact-form button').fadeToggle();
+    },
+
+    error:function(){
+      // Fail, i.e unable to connect to server
+
+      //$('#emailformsubmit').hide();
+      //$("#result").html('Submitted successfully');
+      //$( '.panel-body' ).animate({
+      //left: "-456px",
+      //opacity: 0.0
+      //}, 200, "swing" );
+      //$("#result").html('Submitted successfully');
+      //$( '.panel-body--fail' ).animate({
+      // marginLeft: '0px',
+      //  opacity: 1.0
+      //}, 200, "swing" );
+
+        alert("Hmmm, something went wrong... Please try again.");
+        //$("#result").html('There is error while submit');
+    }
+  });
+}
 
 
 
