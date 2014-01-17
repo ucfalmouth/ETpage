@@ -1,7 +1,5 @@
 @import "settings";
 @import "foundation-icons.css";
-@import "qform.css";
-@import "qform-theme.css";
 @import "foundation";
 @import "compass";
 
@@ -646,6 +644,28 @@ p{
     }
 }
 
+
+.quform-error{
+  display: block;
+padding: 0.33333rem 0.5rem 0.5rem;
+margin-top: -17px;
+margin-bottom: 0.88889rem;
+font-size: 13px;
+font-weight: normal;
+font-style: italic;
+background: #f04124;
+color: white;
+}
+
+.quform-success-message{
+        border-style: solid;
+    border-width: 1px;
+    border-color: #b6edff;
+    margin-bottom: 1.11111rem;
+    padding: 1.11111rem;
+    background: #ecfaff;
+}
+
 .sub-footer-wrapper{
     width: 100%;
     @extend %section-padding;
@@ -739,31 +759,6 @@ select {
     option.disabled{
     color: #ACACAC;
     }
-}
-
-.isotope,
-.isotope .isotope-item {
-  -webkit-transition-duration: 0.4s;
-     -moz-transition-duration: 0.4s;
-      -ms-transition-duration: 0.4s;
-       -o-transition-duration: 0.4s;
-          transition-duration: 0.4s;
-}
-
-.isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
-}
-
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:      -o-transform, opacity;
-          transition-property:         transform, opacity;
 }
 
 

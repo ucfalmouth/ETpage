@@ -196,6 +196,16 @@ $email->addValidators(array('required', 'email'));
 $form->addElement($email);
 
 /**
+ * Configure the query reason element
+ * Filters: Trim
+ * Validators: Required, Email
+ */
+$querysubject = new Quform_Element('querysubject', 'Subject');
+$querysubject->addFilter('trim');
+$querysubject->addValidators(array('required'));
+$form->addElement($querysubject);
+
+/**
  * Configure the message element
  * Filters: Trim
  * Validators: Required
