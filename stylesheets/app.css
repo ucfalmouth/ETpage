@@ -7386,3 +7386,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 select option.disabled {
   color: #ACACAC;
 }
+
+.quform-captcha-inner {
+  margin-bottom: 18px;
+}
