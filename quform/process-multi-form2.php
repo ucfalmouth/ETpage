@@ -39,7 +39,7 @@ $config['email'] = true;
  *     'recipient2@example.com'
  * );
  */
-$config['recipients'] = 'aaron.marr@falmouth.ac.uk';
+$config['recipients'] = '';
 
 /**
  * Set the "From" address of the emails. You should set this to the contact
@@ -59,13 +59,13 @@ $config['recipients'] = 'aaron.marr@falmouth.ac.uk';
  *
  * $config['from'] = '%email%';
  */
-$config['from'] = '%email%';
+$config['from'] = '';
 
 /**
  * The subject of the notification email message. %first_name% will be replaced
  * with the form submitted value in the first_name field.
  */
-$config['subject'] = 'Message from %name%';
+$config['subject'] = 'Multi form 2 example';
 
 /**
  * Set the "Reply-To" email address of the notification email to
@@ -101,7 +101,7 @@ $config['autoreplyRecipient'] = '%email%';
 /**
  * The subject of the autoreply email
  */
-$config['autoreplySubject'] = 'Thanks for your message, %name%';
+$config['autoreplySubject'] = 'Thanks for your message, %full_name%';
 
 /**
  * Set the "From" address of the autoreply email.
@@ -180,42 +180,20 @@ $config['extra']['IP address'] = Quform::getIPAddress();
  * Filters: Trim
  * Validators: Required
  */
-$name = new Quform_Element('name', 'Name');
-$name->addFilter('trim');
-$name->addValidator('required');
-$form->addElement($name);
+$firstName = new Quform_Element('full_name', 'Name');
+$firstName->addFilter('trim');
+$firstName->addValidator('required');
+$form->addElement($firstName);
 
 /**
  * Configure the email address element
  * Filters: Trim
  * Validators: Required, Email
  */
-$email = new Quform_Element('email', 'Email address');
-$email->addFilter('trim');
-$email->addValidators(array('required', 'email'));
-$form->addElement($email);
-
-/**
- * Configure the message element
- * Filters: Trim
- * Validators: Required
- */
-$message = new Quform_Element('message', 'Message');
-$message->addFilter('trim');
-$message->addValidator('required');
-$form->addElement($message);
-
-/**
- * Configure the CAPTCHA element
- * Filters: Trim
- * Validators: Required, Identical
- */
-$captcha = new Quform_Element('type_the_word', 'Type the word');
-$captcha->addFilter('trim');
-$captcha->addValidator('required');
-$captcha->addValidator('identical', array('token' => 'catch'));
-$captcha->setIsHidden(true);
-$form->addElement($captcha);
+$emailAddress = new Quform_Element('email', 'Email address');
+$emailAddress->addFilter('trim');
+$emailAddress->addValidators(array('required', 'email'));
+$form->addElement($emailAddress);
 
 /** END FORM ELEMENT CONFIGURATION **/
 
@@ -307,8 +285,10 @@ function process(Quform $form, array &$config)
 
                 // Build the query
                 $query = "INSERT INTO table SET ";
-                $query .= "`name` = '" . mysql_real_escape_string($form->getValue('name')) . "',";
+                $query .= "`first_name` = '" . mysql_real_escape_string($form->getValue('first_name')) . "',";
+                $query .= "`last_name` = '" . mysql_real_escape_string($form->getValue('last_name')) . "',";
                 $query .= "`email` = '" . mysql_real_escape_string($form->getValue('email')) . "',";
+                $query .= "`subject` = '" . mysql_real_escape_string($form->getValue('subject')) . "',";
                 $query .= "`message` = '" . mysql_real_escape_string($form->getValue('message')) . "';"; // Careful! The last line ends in a semi-colon
 
                 // Execute the query

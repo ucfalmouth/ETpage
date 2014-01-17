@@ -39,7 +39,7 @@ $config['email'] = true;
  *     'recipient2@example.com'
  * );
  */
-$config['recipients'] = 'aaron.marr@falmouth.ac.uk';
+$config['recipients'] = '';
 
 /**
  * Set the "From" address of the emails. You should set this to the contact
@@ -59,13 +59,13 @@ $config['recipients'] = 'aaron.marr@falmouth.ac.uk';
  *
  * $config['from'] = '%email%';
  */
-$config['from'] = '%email%';
+$config['from'] = '';
 
 /**
  * The subject of the notification email message. %first_name% will be replaced
  * with the form submitted value in the first_name field.
  */
-$config['subject'] = 'Message from %name%';
+$config['subject'] = 'File uploads example';
 
 /**
  * Set the "Reply-To" email address of the notification email to
@@ -180,10 +180,20 @@ $config['extra']['IP address'] = Quform::getIPAddress();
  * Filters: Trim
  * Validators: Required
  */
-$name = new Quform_Element('name', 'Name');
-$name->addFilter('trim');
-$name->addValidator('required');
-$form->addElement($name);
+$firstName = new Quform_Element('first_name', 'First name');
+$firstName->addFilter('trim');
+$firstName->addValidator('required');
+$form->addElement($firstName);
+
+/**
+ * Configure the last name element
+ * Filters: Trim
+ * Validators: Required
+ */
+$lastName = new Quform_Element('last_name', 'Last name');
+$lastName->addFilter('trim');
+$lastName->addValidator('required');
+$form->addElement($lastName);
 
 /**
  * Configure the email address element
@@ -196,6 +206,15 @@ $email->addValidators(array('required', 'email'));
 $form->addElement($email);
 
 /**
+ * Configure the subject element
+ * Filters: Trim
+ * Validators: (None)
+ */
+$subject = new Quform_Element('subject', 'Subject');
+$subject->addFilter('trim');
+$form->addElement($subject);
+
+/**
  * Configure the message element
  * Filters: Trim
  * Validators: Required
@@ -204,6 +223,28 @@ $message = new Quform_Element('message', 'Message');
 $message->addFilter('trim');
 $message->addValidator('required');
 $form->addElement($message);
+
+/**
+ * Configure the upload element
+ * Filters: (None)
+ * Validators: FileUpload (Added automatically)
+ */
+$upload = new Quform_Element_File('upload');
+$upload->getFileUploadValidator()->setRequired(true)->setMaximumFileSize(10485760);
+$form->addElement($upload);
+
+/**
+ * Configure the grouped upload element
+ * Filters: (None)
+ * Validators: FileUpload (Added automatically)
+*/
+$uploads = new Quform_Element_File('uploads[]');
+$uploads->getFileUploadValidator()
+->setRequired(true)
+->setRequiredCount(2)
+->setAllowedExtensions(array('gif', 'jpeg', 'jpg', 'png'))
+->setMaximumFileSize(1048576);
+$form->addElement($uploads);
 
 /**
  * Configure the CAPTCHA element
@@ -307,8 +348,10 @@ function process(Quform $form, array &$config)
 
                 // Build the query
                 $query = "INSERT INTO table SET ";
-                $query .= "`name` = '" . mysql_real_escape_string($form->getValue('name')) . "',";
+                $query .= "`first_name` = '" . mysql_real_escape_string($form->getValue('first_name')) . "',";
+                $query .= "`last_name` = '" . mysql_real_escape_string($form->getValue('last_name')) . "',";
                 $query .= "`email` = '" . mysql_real_escape_string($form->getValue('email')) . "',";
+                $query .= "`subject` = '" . mysql_real_escape_string($form->getValue('subject')) . "',";
                 $query .= "`message` = '" . mysql_real_escape_string($form->getValue('message')) . "';"; // Careful! The last line ends in a semi-colon
 
                 // Execute the query

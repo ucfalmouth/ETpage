@@ -39,7 +39,7 @@ $config['email'] = true;
  *     'recipient2@example.com'
  * );
  */
-$config['recipients'] = 'aaron.marr@falmouth.ac.uk';
+$config['recipients'] = '';
 
 /**
  * Set the "From" address of the emails. You should set this to the contact
@@ -59,13 +59,13 @@ $config['recipients'] = 'aaron.marr@falmouth.ac.uk';
  *
  * $config['from'] = '%email%';
  */
-$config['from'] = '%email%';
+$config['from'] = '';
 
 /**
  * The subject of the notification email message. %first_name% will be replaced
  * with the form submitted value in the first_name field.
  */
-$config['subject'] = 'Message from %name%';
+$config['subject'] = 'Validators example';
 
 /**
  * Set the "Reply-To" email address of the notification email to
@@ -176,44 +176,110 @@ $config['extra']['IP address'] = Quform::getIPAddress();
 /** FORM ELEMENT CONFIGURATION **/
 
 /**
- * Configure the first name element
+ * Configure the between 3 and 6 validated field
  * Filters: Trim
- * Validators: Required
+ * Validators: StringLength min 3 max 6, Required
  */
-$name = new Quform_Element('name', 'Name');
-$name->addFilter('trim');
-$name->addValidator('required');
-$form->addElement($name);
+$between3and6 = new Quform_Element('between_three_six');
+$between3and6->addValidator('required');
+$between3and6->addValidator('stringLength', array('min' => 3, 'max' => 6));
+$between3and6->addFilters(array('trim'));
+$form->addElement($between3and6);
 
 /**
- * Configure the email address element
+ * Configure the digits validated field
  * Filters: Trim
- * Validators: Required, Email
+ * Validators: Digits
  */
-$email = new Quform_Element('email', 'Email address');
-$email->addFilter('trim');
-$email->addValidators(array('required', 'email'));
-$form->addElement($email);
+$digits = new Quform_Element('digits');
+$digits->addValidator('required');
+$digits->addValidator('digits');
+$digits->addFilters(array('trim'));
+$form->addElement($digits);
 
 /**
- * Configure the message element
+ * Configure the alphanumeric validated field
  * Filters: Trim
- * Validators: Required
+ * Validators: AlphaNumeric, Required
  */
-$message = new Quform_Element('message', 'Message');
-$message->addFilter('trim');
-$message->addValidator('required');
-$form->addElement($message);
+$alphanumeric = new Quform_Element('alphanumeric');
+$alphanumeric->addValidators(array('alphaNumeric', 'required'));
+$alphanumeric->addFilters(array('trim'));
+$form->addElement($alphanumeric);
 
 /**
- * Configure the CAPTCHA element
+ * Configure the alphabet validated field
+ * Filters: Trim
+ * Validators: Alpha, Required
+ */
+$alphabet = new Quform_Element('alphabet');
+$alphabet->addValidator('required');
+$alphabet->addValidator('alpha');
+$alphabet->addFilters(array('trim'));
+$form->addElement($alphabet);
+
+/**
+ * Configure the less than 3 field
+ * Filters: Trim
+ * Validators: Less than 3, Required
+ */
+$lessThan3 = new Quform_Element('less_than_3');
+$lessThan3->addValidators(array(array('lessThan', array('max' => 3)), 'required'));
+$lessThan3->addFilters(array('trim'));
+$form->addElement($lessThan3);
+
+/**
+ * Configure the greater than 3 field
+ * Filters: Trim
+ * Validators: Greater than 3
+ */
+$greaterThan3 = new Quform_Element('greater_than_3');
+$greaterThan3->addValidator('required');
+$greaterThan3->addValidator('greaterThan', array('min' => 3));
+$greaterThan3->addFilters(array('trim'));
+$form->addElement($greaterThan3);
+
+/**
+ * Configure the word count field
+ * Filters: Trim
+ * Validators: Word count, Required
+ */
+$wordCount = new Quform_Element('word_count');
+$wordCount->addValidator('required');
+$wordCount->addValidator('wordCount', array('min' => 5, 'max' => 10));
+$wordCount->addFilters(array('trim'));
+$form->addElement($wordCount);
+
+/**
+ * Configure the in array field
+ * Filters: Trim
+ * Validators: In array, Required
+*/
+$inArray = new Quform_Element('in_array');
+$inArray->addValidator('required');
+$inArray->addValidator('inArray', array('haystack' => array('theme', 'catcher', 'quform')));
+$inArray->addFilters(array('trim'));
+$form->addElement($inArray);
+
+/**
+ * Configure the regex field
+ * Filters: Trim
+ * Validators: Regex, Required
+*/
+$regexElement = new Quform_Element('regex');
+$regexElement->addValidator('required');
+$regexElement->addValidator('regex', array('pattern' => '/[\d+]/'));
+$regexElement->addFilter('trim');
+$form->addElement($regexElement);
+
+/**
+ * Configure the CAPTCHA field
  * Filters: Trim
  * Validators: Required, Identical
  */
-$captcha = new Quform_Element('type_the_word', 'Type the word');
+$captcha = new Quform_Element('type_the_word');
 $captcha->addFilter('trim');
-$captcha->addValidator('required');
-$captcha->addValidator('identical', array('token' => 'catch'));
+$captcha->addValidators(array('required', array('identical', array('token' => 'catch'))));
 $captcha->setIsHidden(true);
 $form->addElement($captcha);
 
@@ -307,8 +373,10 @@ function process(Quform $form, array &$config)
 
                 // Build the query
                 $query = "INSERT INTO table SET ";
-                $query .= "`name` = '" . mysql_real_escape_string($form->getValue('name')) . "',";
+                $query .= "`first_name` = '" . mysql_real_escape_string($form->getValue('first_name')) . "',";
+                $query .= "`last_name` = '" . mysql_real_escape_string($form->getValue('last_name')) . "',";
                 $query .= "`email` = '" . mysql_real_escape_string($form->getValue('email')) . "',";
+                $query .= "`subject` = '" . mysql_real_escape_string($form->getValue('subject')) . "',";
                 $query .= "`message` = '" . mysql_real_escape_string($form->getValue('message')) . "';"; // Careful! The last line ends in a semi-colon
 
                 // Execute the query

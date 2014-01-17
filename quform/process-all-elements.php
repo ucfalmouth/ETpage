@@ -39,7 +39,7 @@ $config['email'] = true;
  *     'recipient2@example.com'
  * );
  */
-$config['recipients'] = 'aaron.marr@falmouth.ac.uk';
+$config['recipients'] = '';
 
 /**
  * Set the "From" address of the emails. You should set this to the contact
@@ -59,13 +59,13 @@ $config['recipients'] = 'aaron.marr@falmouth.ac.uk';
  *
  * $config['from'] = '%email%';
  */
-$config['from'] = '%email%';
+$config['from'] = '';
 
 /**
  * The subject of the notification email message. %first_name% will be replaced
  * with the form submitted value in the first_name field.
  */
-$config['subject'] = 'Message from %name%';
+$config['subject'] = 'All elements example';
 
 /**
  * Set the "Reply-To" email address of the notification email to
@@ -175,41 +175,98 @@ $config['extra']['IP address'] = Quform::getIPAddress();
 
 /** FORM ELEMENT CONFIGURATION **/
 
-/**
- * Configure the first name element
- * Filters: Trim
- * Validators: Required
- */
-$name = new Quform_Element('name', 'Name');
-$name->addFilter('trim');
-$name->addValidator('required');
-$form->addElement($name);
+$textInput = new Quform_Element('text_input', 'Text input');
+$textInput->addFilter('trim');
+$textInput->addValidator('required');
+$form->addElement($textInput);
 
-/**
- * Configure the email address element
- * Filters: Trim
- * Validators: Required, Email
- */
-$email = new Quform_Element('email', 'Email address');
-$email->addFilter('trim');
-$email->addValidators(array('required', 'email'));
-$form->addElement($email);
+$textInput2 = new Quform_Element('text_input2', 'Text input 2');
+$textInput2->addFilter('trim');
+$textInput2->addValidator('required');
+$form->addElement($textInput2);
 
-/**
- * Configure the message element
- * Filters: Trim
- * Validators: Required
- */
-$message = new Quform_Element('message', 'Message');
-$message->addFilter('trim');
-$message->addValidator('required');
-$form->addElement($message);
+$textInput3 = new Quform_Element('text_input3', 'Text input 3');
+$textInput3->addFilter('trim');
+$textInput3->addValidator('required');
+$form->addElement($textInput3);
 
-/**
- * Configure the CAPTCHA element
- * Filters: Trim
- * Validators: Required, Identical
- */
+$textInput4 = new Quform_Element('text_input4', 'Text input 4');
+$textInput4->addFilter('trim');
+$textInput4->addValidator('required');
+$form->addElement($textInput4);
+
+$textInput5 = new Quform_Element('text_input5', 'Text input 5');
+$textInput5->addFilter('trim');
+$textInput5->addValidator('required');
+$form->addElement($textInput5);
+
+$textInput6 = new Quform_Element('text_input6', 'Text input 6');
+$textInput6->addFilter('trim');
+$textInput6->addValidator('required');
+$form->addElement($textInput6);
+
+$textInput7 = new Quform_Element('text_input7', 'Text input 7');
+$textInput7->addFilter('trim');
+$textInput7->addValidator('required');
+$form->addElement($textInput6);
+
+$singleSelect = new Quform_Element('single_select', 'Single select');
+$singleSelect->addValidator('required');
+$form->addElement($singleSelect);
+
+$subject = new Quform_Element('subject', 'Subject');
+$subject->addFilter('trim');
+$form->addElement($subject);
+
+$multiSelect = new Quform_Element('multi_select[]', 'Multi select');
+$multiSelect->addValidator('required');
+$form->addElement($multiSelect);
+
+$singleCheckbox = new Quform_Element('single_checkbox', 'Single checkbox');
+$singleCheckbox->addValidator('required');
+$form->addElement($singleCheckbox);
+
+$radioButton = new Quform_Element('multi_checkbox[]', 'Multi checkbox');
+$radioButton->addValidator('required');
+$form->addElement($radioButton);
+
+$multiCheckbox2 = new Quform_Element('multi_checkbox2[]', 'Multi checkbox 2');
+$multiCheckbox2->addValidator('required');
+$form->addElement($multiCheckbox2);
+
+$radioButton = new Quform_Element('radio_button', 'Radio button');
+$radioButton->addValidator('required');
+$form->addElement($radioButton);
+
+$radioButton2 = new Quform_Element('radio_button2', 'Radio button 2');
+$radioButton2->addValidator('required');
+$form->addElement($radioButton2);
+
+$textarea = new Quform_Element('textarea', 'Textarea');
+$textarea->addValidator('required');
+$textarea->addFilter('trim');
+$form->addElement($textarea);
+
+$date = new Quform_Element_Date('date', 'Date');
+$date->addValidators(array('required', 'date'));
+$form->addElement($date);
+
+$time = new Quform_Element_Time('time', 'Time');
+$time->addValidators(array('required', 'time'));
+$form->addElement($time);
+
+$upload = new Quform_Element_File('upload');
+$upload->getFileUploadValidator()->setRequired(true)->setMaximumFileSize(10485760);
+$form->addElement($upload);
+
+$uploads = new Quform_Element_File('uploads[]');
+$uploads->getFileUploadValidator()
+->setRequired(true)
+->setRequiredCount(2)
+->setAllowedExtensions(array('gif', 'jpeg', 'jpg', 'png'))
+->setMaximumFileSize(1048576);
+$form->addElement($uploads);
+
 $captcha = new Quform_Element('type_the_word', 'Type the word');
 $captcha->addFilter('trim');
 $captcha->addValidator('required');
@@ -307,8 +364,10 @@ function process(Quform $form, array &$config)
 
                 // Build the query
                 $query = "INSERT INTO table SET ";
-                $query .= "`name` = '" . mysql_real_escape_string($form->getValue('name')) . "',";
+                $query .= "`first_name` = '" . mysql_real_escape_string($form->getValue('first_name')) . "',";
+                $query .= "`last_name` = '" . mysql_real_escape_string($form->getValue('last_name')) . "',";
                 $query .= "`email` = '" . mysql_real_escape_string($form->getValue('email')) . "',";
+                $query .= "`subject` = '" . mysql_real_escape_string($form->getValue('subject')) . "',";
                 $query .= "`message` = '" . mysql_real_escape_string($form->getValue('message')) . "';"; // Careful! The last line ends in a semi-colon
 
                 // Execute the query

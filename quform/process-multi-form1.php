@@ -39,7 +39,7 @@ $config['email'] = true;
  *     'recipient2@example.com'
  * );
  */
-$config['recipients'] = 'aaron.marr@falmouth.ac.uk';
+$config['recipients'] = '';
 
 /**
  * Set the "From" address of the emails. You should set this to the contact
@@ -59,19 +59,19 @@ $config['recipients'] = 'aaron.marr@falmouth.ac.uk';
  *
  * $config['from'] = '%email%';
  */
-$config['from'] = '%email%';
+$config['from'] = '';
 
 /**
  * The subject of the notification email message. %first_name% will be replaced
  * with the form submitted value in the first_name field.
  */
-$config['subject'] = 'Message from %name%';
+$config['subject'] = 'Multi form 1 example';
 
 /**
  * Set the "Reply-To" email address of the notification email to
  * the email address submitted in the email field.
  */
-$config['replyTo'] = '%email%';
+$config['replyTo'] = '%email_address%';
 
 /**
  * The file containing the HTML body of the notification email.
@@ -180,20 +180,39 @@ $config['extra']['IP address'] = Quform::getIPAddress();
  * Filters: Trim
  * Validators: Required
  */
-$name = new Quform_Element('name', 'Name');
-$name->addFilter('trim');
-$name->addValidator('required');
-$form->addElement($name);
+$firstName = new Quform_Element('first_name', 'First name');
+$firstName->addFilter('trim');
+$firstName->addValidator('required');
+$form->addElement($firstName);
+
+/**
+ * Configure the last name element
+ * Filters: Trim
+ * Validators: Required
+ */
+$lastName = new Quform_Element('last_name', 'Last name');
+$lastName->addFilter('trim');
+$lastName->addValidator('required');
+$form->addElement($lastName);
 
 /**
  * Configure the email address element
  * Filters: Trim
  * Validators: Required, Email
  */
-$email = new Quform_Element('email', 'Email address');
-$email->addFilter('trim');
-$email->addValidators(array('required', 'email'));
-$form->addElement($email);
+$emailAddress = new Quform_Element('email_address', 'Email address');
+$emailAddress->addFilter('trim');
+$emailAddress->addValidators(array('required', 'email'));
+$form->addElement($emailAddress);
+
+/**
+ * Configure the subject element
+ * Filters: Trim
+ * Validators: (None)
+ */
+$subject = new Quform_Element('subject', 'Subject');
+$subject->addFilter('trim');
+$form->addElement($subject);
 
 /**
  * Configure the message element
@@ -307,8 +326,10 @@ function process(Quform $form, array &$config)
 
                 // Build the query
                 $query = "INSERT INTO table SET ";
-                $query .= "`name` = '" . mysql_real_escape_string($form->getValue('name')) . "',";
+                $query .= "`first_name` = '" . mysql_real_escape_string($form->getValue('first_name')) . "',";
+                $query .= "`last_name` = '" . mysql_real_escape_string($form->getValue('last_name')) . "',";
                 $query .= "`email` = '" . mysql_real_escape_string($form->getValue('email')) . "',";
+                $query .= "`subject` = '" . mysql_real_escape_string($form->getValue('subject')) . "',";
                 $query .= "`message` = '" . mysql_real_escape_string($form->getValue('message')) . "';"; // Careful! The last line ends in a semi-colon
 
                 // Execute the query
