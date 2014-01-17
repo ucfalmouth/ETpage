@@ -6889,7 +6889,8 @@ p {
 .services-wrapper {
   width: 100%;
   background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: white url("../img/subtle_dots.png") repeat left top;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.19);
 }
 
 .services-list__item {
@@ -7187,7 +7188,7 @@ p {
 
 .section-contact-wrapper {
   width: 100%;
-  background: #fff;
+  background: white url(../img/team-et-faded.png) center -100px;
 }
 
 .section-contact textarea {
@@ -7330,7 +7331,7 @@ p {
   padding: 64px 20px;
   padding: 4rem 1.25rem;
   /*@include background-image(linear-gradient(#1ABC9C, #27AE60));*/
-  background: #333a41;
+  background: #1A242E;
 }
 @media (max-width: 500px) {
   .site-footer-wrapper {

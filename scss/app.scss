@@ -356,7 +356,8 @@ p{
     width: 100%;
     @extend %section-padding;
     background: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff url('../img/subtle_dots.png') repeat left top;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.19);
 }
 
 .services{
@@ -592,7 +593,7 @@ p{
 .section-contact-wrapper{
     width: 100%;
     @extend %section-padding;
-    background: #fff;
+    background: #fff url(../img/team-et-faded.png) center -100px;
 }
 
 .section-contact{
@@ -727,7 +728,7 @@ color: white;
          @include x-rem(padding, 1 20px);
     }
     /*@include background-image(linear-gradient(#1ABC9C, #27AE60));*/
-    background: $footer-bg-color; //#2c3e50;
+    background: #1A242E; //#2c3e50;
 }
 
 .site-footer{
