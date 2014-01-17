@@ -131,6 +131,7 @@ a{
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
     border: 1px solid white;
+    @include border-radius(4px);
 }
 
 
@@ -275,6 +276,10 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 .masterheader__header{
     @extend %header-intro-styles;
+
+    @media (max-width: 670px) {
+       font-size: 2rem;
+     }
 
     @media (max-width: 570px) {
        display: none;
@@ -791,5 +796,13 @@ select {
 
 .quform-captcha-inner{
     margin-bottom: 18px;
+    img{
+        @include border-radius(4px);
+    }
 }
 
+.quform-input{
+    select{
+         @include border-radius(4px);
+    }
+}

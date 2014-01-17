@@ -6654,6 +6654,11 @@ a {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
   border: 1px solid white;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .nav-wrapper {
@@ -6800,6 +6805,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   font-style: italic;
 }
 
+@media (max-width: 670px) {
+  .masterheader__header {
+    font-size: 2rem;
+  }
+}
 @media (max-width: 570px) {
   .masterheader__header {
     display: none;
@@ -7389,4 +7399,19 @@ select option.disabled {
 
 .quform-captcha-inner {
   margin-bottom: 18px;
+}
+.quform-captcha-inner img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.quform-input select {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
