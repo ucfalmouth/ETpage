@@ -81,6 +81,8 @@ $( document ).ready(function() {
     $('.nav__menu').find('#about').parent().addClass("nav__menu-item--active");
     });
 
+    
+
 
     // Highlight the nav items
     /*$('.nav__menu').onePageNav({
