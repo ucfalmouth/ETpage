@@ -371,12 +371,10 @@
 
 
         <!-- To copy the form HTML, start here -->
-    <div class="quform-outer quform-theme-light-light">
+    <div class="quform-outer quform-theme-light-light section-contact__form">
         <form class="quform" action="quform/process.php" method="post" enctype="multipart/form-data" onclick="">
 
             <div class="quform-inner">
-                <h3 class="quform-title">Contact form</h3>
-                <p class="quform-description">Please get in touch using the form below.</p>
 
                 <div class="quform-elements">
 
@@ -389,9 +387,9 @@
                                 <!-- Begin Text input element -->
                                 <div class="quform-element quform-element-text">
                                     <div class="quform-spacer">
-                                        <label for="name">Name <span class="quform-required">*</span></label>
+                                        
                                         <div class="quform-input">
-                                            <input id="name" type="text" name="name" />
+                                            <input id="name" type="text" name="name" placeholder="Name" />
                                         </div>
                                     </div>
                                 </div>
@@ -400,9 +398,9 @@
                                 <!-- Begin Text input element -->
                                 <div class="quform-element quform-element-text">
                                     <div class="quform-spacer">
-                                        <label for="email">Email address <span class="quform-required">*</span></label>
+                                       
                                         <div class="quform-input">
-                                            <input id="email" type="text" name="email" />
+                                            <input id="email" type="text" name="email" placeholder="Email" />
                                         </div>
                                     </div>
                                 </div>
@@ -417,9 +415,9 @@
                     <!-- Begin Textarea element -->
                     <div class="quform-element quform-element-textarea quform-huge">
                         <div class="quform-spacer">
-                            <label for="message">Message <span class="quform-required">*</span></label>
+                           
                             <div class="quform-input">
-                                <textarea id="message" name="message" style="height: 130px;"></textarea>
+                                <textarea id="message" name="message"  placeholder="How can we help?" style="height: 130px;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -428,9 +426,9 @@
                     <!-- Begin Captcha element -->
                     <div class="quform-element quform-element-captcha">
                         <div class="quform-spacer">
-                            <label for="type_the_word">Type the word <span class="quform-required">*</span></label>
+                            
                             <div class="quform-input">
-                                <input id="type_the_word" type="text" name="type_the_word" />
+                                <input id="type_the_word" type="text" placeholder="Prove you are human. Type the word below." name="type_the_word" />
                             </div>
                             <div class="quform-captcha">
                                 <div class="quform-captcha-inner">
