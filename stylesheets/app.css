@@ -6648,6 +6648,14 @@ p {
   font-weight: 400;
 }
 
+a {
+  text-decoration: underline;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  border: 1px solid white;
+}
+
 .nav-wrapper {
   width: 100%;
   position: absolute;
@@ -6657,6 +6665,9 @@ p {
 .nav {
   padding: 32px 20px 32px 20px;
   padding: 2rem 1.25rem 2rem 1.25rem;
+}
+.nav a {
+  text-decoration: none;
 }
 
 .nav__brand {
@@ -7188,7 +7199,8 @@ p {
 
 .section-contact-wrapper {
   width: 100%;
-  background: white url(../img/team-et-faded.png) center -100px;
+  background: white url(../img/team-et-dark.jpg) center -100px;
+  border-bottom: 1px solid #212E3C;
 }
 
 .section-contact textarea {
@@ -7199,6 +7211,12 @@ p {
   .section-contact .section-header__title {
     width: 100%;
   }
+}
+.section-contact p {
+  color: #BCC5CF;
+}
+.section-contact h5 {
+  color: #BCC5CF;
 }
 
 .section-contact__intro {
