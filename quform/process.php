@@ -164,7 +164,7 @@ $config['smtp'] = array(
     'host' => 'smtp.mailspace.falmouth.ac.uk',
     'port' => 25,
     'username' => 'am144296',
-    'password' => 'Zooms18',
+    'password' => 'Zooms123',
     'encryption' => ''
 );
 
