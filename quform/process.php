@@ -163,7 +163,7 @@ $config['uploadUrl'] = '';
 $config['smtp'] = array(
     'host' => 'smtp.mailspace.falmouth.ac.uk',
     'port' => 25,
-    'username' => 'am144296',
+    'username' => 'staff\am144296',
     'password' => 'Zooms123',
     'encryption' => ''
 );
