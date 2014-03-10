@@ -39,7 +39,7 @@ $config['email'] = true;
  *     'recipient2@example.com'
  * );
  */
-$config['recipients'] = 'aaron.marr@falmouth.ac.uk';
+$config['recipients'] = 'etsupport@falmouth.ac.uk';
 
 /**
  * Set the "From" address of the emails. You should set this to the contact
