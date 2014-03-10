@@ -161,10 +161,10 @@ $config['uploadUrl'] = '';
  * encryption - SMTP encryption (e.g. ssl or tls)
  */
 $config['smtp'] = array(
-    'host' => 'smtp.mailspace.falmouth.ac.uk',
+    'host' => 'smtp.falmouth.ac.uk',
     'port' => 25,
-    'username' => 'staff\am144296',
-    'password' => 'Zooms123',
+    'username' => '',
+    'password' => '',
     'encryption' => ''
 );
 
